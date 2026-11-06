@@ -22,6 +22,10 @@ const python =
     }
   }) || 'python3';
 const tool = path.join(__dirname, '..', '..', '..', 'TOTRsrv', 'tools', 'make_certs.py');
+if (!fs.existsSync(tool)) {
+  console.log('skip trust tests: they need the TOTRsrv project in a folder next to this one');
+  process.exit(0);
+}
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'totr-trust-'));
 const env = {
   ...process.env,

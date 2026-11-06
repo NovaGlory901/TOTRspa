@@ -91,8 +91,10 @@ check('the finished download must hash to a signed checksum', () => {
 });
 check("a signature from the developer's own tool (release_tool.py sign-file) passes", () => {
   const svr = path.join(__dirname, '..', '..', '..', 'TOTRsrv');
-  // only inside the full repository
-  if (!fs.existsSync(path.join(svr, 'tools', 'release_tool.py'))) return;
+  if (!fs.existsSync(path.join(svr, 'tools', 'release_tool.py'))) {
+    console.log('skip signature from release_tool.py: TOTRsrv is not in a folder next to this one');
+    return;
+  }
   const env = { ...process.env, TOTR_SIGNING_PASSPHRASE: 'a long test passphrase' },
     dir = path.join(tmp, 'k');
   const kg = spawnSync(

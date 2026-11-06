@@ -19,7 +19,7 @@ TOTR_SERVER=... npm run electron:dev:linux                       # a desktop win
 npm install && npm test        # runs every workspace's tests
 ```
 The desktop shell's tests run the real shell code against a stand-in for Electron (no window opens): who may press which button, server trust, signed updates, damaged
-settings files, first run. They need only Node.
+settings files, first run. They need only Node; a few cross-checks against the real server (certificates, fingerprints, signatures, joining) run only when the TOTRsrv project is in a folder next to this one, and print `skip` otherwise.
 
 ## Build installers
 

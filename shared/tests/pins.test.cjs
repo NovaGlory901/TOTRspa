@@ -135,21 +135,26 @@ ok(
   (fp || '').replace(/-/g, '') === sha.slice(0, 24),
   `${fp} vs ${sha.slice(0, 24)}`,
 );
-const py = spawnSync(
-  python,
-  [
-    '-c',
-    'import sys; sys.path.insert(0, sys.argv[1]); import tlsid; print(tlsid.fingerprint(open(sys.argv[2], "rb").read()))',
-    path.join(__dirname, '..', '..', '..', 'TOTRsrv'),
-    file('friend-ca.pem'),
-  ],
-  { encoding: 'utf8' },
-);
-ok(
-  'and it is exactly the code the server shows (TOTRsrv/tlsid.py)',
-  py.status === 0 && py.stdout.trim() === fp,
-  py.stderr || py.stdout,
-);
+const srvDir = path.join(__dirname, '..', '..', '..', 'TOTRsrv');
+if (fs.existsSync(path.join(srvDir, 'tlsid.py'))) {
+  const py = spawnSync(
+    python,
+    [
+      '-c',
+      'import sys; sys.path.insert(0, sys.argv[1]); import tlsid; print(tlsid.fingerprint(open(sys.argv[2], "rb").read()))',
+      srvDir,
+      file('friend-ca.pem'),
+    ],
+    { encoding: 'utf8' },
+  );
+  ok(
+    'and it is exactly the code the server shows (TOTRsrv/tlsid.py)',
+    py.status === 0 && py.stdout.trim() === fp,
+    py.stderr || py.stdout,
+  );
+} else {
+  console.log('skip fingerprint against the server: TOTRsrv is not in a folder next to this one');
+}
 ok(
   'a key is never accepted as a certificate, even beside one',
   pins.parse(KEY) === null && pins.parse(CA + KEY) === null && pins.fingerprint(KEY) === null,
