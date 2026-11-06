@@ -41,7 +41,7 @@ if its certificate later changes the app refuses it and says so. The server list
 ## Security
 
 - Electron pages run with context isolation, the sandbox and no Node; the shell's buttons answer only to the app's own pages; developer tools are off in installed apps.
-- App updates install only if the update file is signed with the developer's Ed25519 key, whose public half is in `shared/electron/update_pubkey.txt` (empty until the developer adds it; with no key the app installs no updates), and the download must match the checksum in that signed file.
+- App updates install only if the update file is signed with the developer's Ed25519 key, whose public half is in `shared/electron/update_pubkey.txt` (an app without a key would install no updates), and the download must match the checksum in that signed file.
 - Whichever server the app is connected to, only the developer's signature counts for the app's own updates.
 - To report a security problem privately, see [SECURITY.md](SECURITY.md): use this repository's Security tab, then Report a vulnerability.
 
