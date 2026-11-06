@@ -1,0 +1,24 @@
+
+# shells
+release/
+
+# the C++ programs built for the desktop installer (tools/stage-native.cjs makes them; they are rebuilt for every release)
+**/electron/native/
+
+# Gradle build caches, anywhere (the real Android project is TOTRspa_apk/android; its own rules already cover it)
+.gradle/
+
+# per-machine settings (TOTR_SERVER, TOTR_APP_OUT ...)
+**/.env
+**/.env.local
+
+# installed packages and web builds
+node_modules/
+**/dist/
+
+# the server and login details of one machine for shared/tools/deploy.cjs (copy deploy.config.example.json)
+shared/deploy.config.json
+
+# the server's certificate authority that sync-ca copies into a build: public, but it belongs to whoever builds, not to this repository
+**/electron/totr-ca.pem
+**/res/raw/totr_ca.pem

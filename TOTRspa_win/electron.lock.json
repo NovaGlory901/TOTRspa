@@ -1,0 +1,89 @@
+{
+  "_": "Written by tools/sync-vendor.cjs. Do not edit by hand.",
+  "files": {
+    "address.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "3d7f5723157a128deae1745172d5e03de3564c1275fea59b681096a7109413e7"
+    },
+    "main.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "61923a56f1d8bfb5c5816e969f60896a1538122bac643dd36a0de392c5a90ba5"
+    },
+    "native.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "891b49eeb9b6da377e4b82d8b9d59bb3426f1e7743ab41b6279ebb2a36d43f09"
+    },
+    "guard.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "06ff56fb4f383697e5fe5cdf0f62f91111e04d322a0b692e86df85c0689c1f38"
+    },
+    "offline.html": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "cd11c9c6731c96f084b5fa97314fe9ef2c31b0d206acc176e94c47ed435734ae"
+    },
+    "offline.js": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "9a58687948cecece735d3d345edd1f0bb8fc45a072541f6c5e5484a03bf36186"
+    },
+    "preload.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "0d45d2e4f3e8d90a8a3ea834331eaa0cd9537602e9e2b94184c888d268613d40"
+    },
+    "servers.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "9c5e13152250c0b230860fcb5792db07b0f8efb6c496a484c331aa8ca25c9805"
+    },
+    "trust.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "cd35c9cdd423ea8cc6d042abf21a7e18c739e2ceac54d4fe1d86bf8fb059378e"
+    },
+    "pins.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "1c0a86b7e31239487e3cd30088029c7471516f67edc3620aa2a2ddb0a1ed1768"
+    },
+    "plainerror.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "b63723fec85df550f4bdc83d1623b4f2f5f16e916a13298d9237949df1ba2db7"
+    },
+    "appsig.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "974498c221437774e22481c0d6c4e9420914c6de1b3f936d7d89e7309b9648dc"
+    },
+    "appkey.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "da01d274006550b17fad14fc0c71d40aa8281750262ec504db6d7cb4c82a78b2"
+    },
+    "update_pubkey.txt": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "fc471d7b96e4d8e469c486fc989a5c782fcf37e4309dc2dcbae6c9b0722af7bc"
+    },
+    "probe.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "67ebcb2716ce0449d7ae40521e18a28eea7321792f0026dc4b2ad7b7ddee7f99"
+    },
+    "discover.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "27a08318a5b2a47776462212afc2af696af2f8abc4564c70c2ad1c5a9770d36e"
+    },
+    "joinclient.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "679a7d2dc5e98a5387e8ffe011f6ff26590f27f458823c990b635e2366c74133"
+    },
+    "accounts.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "85f2188b746454c91f54e9d529ca40b46293c195caadd97d11a70214fd8caa0b"
+    },
+    "linkgate.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "6f1fe2f1e113ae50d087d843052c7c715c4ae2b3b72169268dc007032cceb44b"
+    },
+    "permissions.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "971851731bee8e649838e1702b261da597b9365cec40f5c2d57a7339512e3ff9"
+    },
+    "shellaccess.cjs": {
+      "from": "TOTRspa/shared/electron",
+      "sha256": "0ed3731e0246c567be15fc781a61168ff21a2fa1e4242b1f46e77301dbb0df37"
+    }
+  }
+}

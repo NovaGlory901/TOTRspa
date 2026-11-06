@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Written by shared/tools/sync-ca.cjs. Which certificate authorities the app trusts for network connections (the pages it opens, the update download,
+     saved mixtapes). Plain http is refused: the server must be reached over https. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

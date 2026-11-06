@@ -1,0 +1,7 @@
+{
+  "ssh": "admin@your-server",
+  "downloadsDir": "/srv/totr/TOTRsrv/static/downloads",
+  "appDir": "/srv/totr/TOTRsrv/static/app",
+  "localDownloadsDir": "/srv/totr/TOTRsrv/static/downloads",
+  "keep": 5
+}

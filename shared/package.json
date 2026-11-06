@@ -1,0 +1,9 @@
+{
+  "name": "totr-spa-shared",
+  "private": true,
+  "version": "0.6.3",
+  "description": "What the Windows, Linux and Android apps share: the Electron code (electron/, synced into each desktop shell), the tools that build and ship them, the release settings, and their tests.",
+  "scripts": {
+    "test": "node tests/deploy.test.cjs && node tests/trust.test.cjs && node tests/pins.test.cjs && node tests/address.test.cjs && node tests/servers.test.cjs && node tests/native.test.cjs && node tests/guard.test.cjs && node tests/shellaccess.test.cjs && node tests/permissions.test.cjs && node tests/linkgate.test.cjs && node tests/main.test.cjs && node tests/firstrun.test.cjs && node tests/appsig.test.cjs && node tests/robust.test.cjs && node tests/discover.test.cjs && node tests/joinclient.test.cjs && node tests/accounts.test.cjs"
+  }
+}

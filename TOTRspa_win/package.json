@@ -1,0 +1,61 @@
+{
+  "name": "totr-spa-win",
+  "private": true,
+  "version": "0.6.3",
+  "description": "TOTR listener app: the Windows shell (a window onto the server's own copy of the app). Its electron/ folder is a synced copy of ../shared/electron.",
+  "author": "the TOTR authors",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "sync-ca": "node ../shared/tools/sync-ca.cjs",
+    "stage-native": "node ../shared/tools/stage-native.cjs",
+    "dist": "npm run sync-ca && npm run stage-native && electron-builder --win nsis --publish never",
+    "release": "npm run dist && node ../shared/tools/deploy.cjs win",
+    "test": "node ../shared/tools/check-lock.cjs electron.lock.json electron && node ../shared/tools/check-lock.cjs build.lock.json build"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9",
+    "multicast-dns": "7.2.5"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "org.totr.app",
+    "productName": "TOTR",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**",
+      "!electron/native/**",
+      "package.json"
+    ],
+    "win": {
+      "extraResources": [
+        {
+          "from": "electron/native/win",
+          "to": "native",
+          "filter": [
+            "**/*",
+            "!version.txt"
+          ]
+        }
+      ],
+      "target": "nsis",
+      "artifactName": "TOTR-${version}-win.${ext}"
+    },
+    "publish": {
+      "provider": "generic",
+      "url": "https://totr.example/static/downloads/",
+      "channel": "latest"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true,
+      "differentialPackage": false
+    }
+  }
+}

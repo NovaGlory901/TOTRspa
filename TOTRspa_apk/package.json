@@ -1,0 +1,21 @@
+{
+  "name": "totr-spa-apk",
+  "private": true,
+  "version": "0.8.1",
+  "description": "TOTR listener app: the Android shell (Capacitor). The APK holds only the launcher in android-launcher/ and the native audio/update/offline code in android/; it opens the server's own copy of the app.",
+  "author": "the TOTR authors",
+  "scripts": {
+    "sync-ca": "node ../shared/tools/sync-ca.cjs",
+    "sync": "npm run sync-ca && cap sync android",
+    "build": "npm run sync && cd android && sh gradlew assembleRelease && cd .. && node tools/release-apk.cjs",
+    "build:windows": "npm run sync && cd android && gradlew.bat assembleRelease && cd .. && node tools/release-apk.cjs",
+    "art": "python3 tools/make-android-art.py"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_": "Written by tools/sync-vendor.cjs. Do not edit by hand.",
+  "files": {
+    "icon.png": {
+      "from": "TOTRspa/shared/assets",
+      "sha256": "a8c338dae4598b56bcc000dba2f845f3df1c9a68b0b3b3b1fe2967c9567a461b"
+    }
+  }
+}

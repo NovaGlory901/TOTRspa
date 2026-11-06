@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; media-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>TOTR offline</title>
+<link rel="stylesheet" href="local.css">
+</head>
+<body>
+<header class="top">
+  <div class="logo">TOTR<span class="cursor">_</span></div>
+  <span class="badge">OFFLINE</span>
+  <button id="online" type="button">Go online</button>
+</header>
+<main id="view"></main>
+<div id="bar" hidden>
+  <div class="line">
+    <img class="cover" id="barCover" alt="" hidden>
+    <div class="song"><b id="barTitle"></b><span id="barArtist"></span></div>
+    <button id="prev" type="button" aria-label="Previous song"></button>
+    <button id="toggle" type="button" aria-label="Play or pause"></button>
+    <button id="next" type="button" aria-label="Next song"></button>
+  </div>
+  <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Position in the song">
+</div>
+<audio id="audio" preload="auto"></audio>
+<script src="common.js"></script>
+<script src="offline.js"></script>
+</body>
+</html>

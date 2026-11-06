@@ -1,0 +1,39 @@
+{
+  "name": "totr-spa",
+  "private": true,
+  "version": "0.6.3",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev -w TOTRspa_web",
+    "build": "npm run build -w TOTRspa_web",
+    "preview": "npm run preview -w TOTRspa_web",
+    "dist:win": "npm run dist -w TOTRspa_win",
+    "dist:linux": "npm run dist -w TOTRspa_linux",
+    "android:sync": "npm run sync -w TOTRspa_apk",
+    "android:build": "npm run build:windows -w TOTRspa_apk",
+    "android:build:linux": "npm run build -w TOTRspa_apk",
+    "deploy": "node shared/tools/deploy.cjs",
+    "android:release": "npm run android:build:linux && node shared/tools/deploy.cjs android && npm run publish:web && node shared/tools/deploy.cjs app",
+    "linux:release": "npm run release -w TOTRspa_linux",
+    "win:release": "npm run release -w TOTRspa_win",
+    "dist:all": "npm run dist:win && npm run dist:linux && npm run android:build",
+    "publish:web": "npm run publish:web -w TOTRspa_web",
+    "test": "npm test --workspaces --if-present",
+    "electron:dev:linux": "concurrently -k \"npm run dev -w TOTRspa_web\" \"wait-on tcp:5173 && cross-env ELECTRON_DEV_URL=http://localhost:5173 npm start -w TOTRspa_linux\"",
+    "electron:dev:win": "concurrently -k \"npm run dev -w TOTRspa_web\" \"wait-on tcp:5173 && cross-env ELECTRON_DEV_URL=http://localhost:5173 npm start -w TOTRspa_win\""
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "wait-on": "^9.5.1"
+  },
+  "description": "TOTR listener app (React) with Electron and Capacitor shells",
+  "author": "the TOTR authors",
+  "workspaces": [
+    "TOTRspa_web",
+    "shared",
+    "TOTRspa_win",
+    "TOTRspa_linux",
+    "TOTRspa_apk"
+  ]
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self'">
+<title>TOTR</title>
+<style>
+body {
+  background: #111;
+  color: #ddd;
+  font: 16px monospace;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+}
+main {
+  max-width: 32em;
+  padding: 1em;
+}
+button {
+  font: inherit;
+  padding: 0.4em 1em;
+}
+code {
+  color: #5f5;
+}
+#savedList button {
+  display: block;
+  margin: 0.3em 0;
+}
+</style>
+</head>
+<body>
+<main>
+<h1 id="title">Cannot reach the TOTR server</h1>
+<div id="certWarn" hidden style="border:2px solid #f77;padding:.6em 1em;margin:0 0 1em"><b style="color:#f77">This server's certificate has changed.</b><p>You trusted this server before by checking its code, and it is now showing a different certificate. That can happen if its owner made a new one, but it can also mean someone is listening in. Do not sign in. Ask the server's owner whether they changed it; if so, remove the server from the list and add it again, and compare the new code.</p></div>
+<p id="configNote" hidden style="color:#f77">The app's saved settings could not be read, so it is starting fresh. The old file was kept as config.json.broken in the app's settings folder.</p>
+<div id="firstRun" hidden><p>Welcome to TOTR. Which server should this app use? Type its address below. Ask whoever runs the server if you do not have it.</p></div>
+<div id="lost"><p>Looked for it at <code id="server"></code>. Check you are on the home network, then try again.</p>
+<p><button id="retry">Try again</button></p></div>
+<div id="saved" hidden><p>Or use another saved server:</p><div id="savedList"></div></div>
+<p id="addrLabel">Use a different server (an address like <code>https://totr.example:8443</code>):</p>
+<p><input id="addr" size="32" placeholder="https://totr.example:8443" autocomplete="off"> <button id="useAddr">Use this server</button></p>
+<p id="addrMsg" style="color:#f77"></p>
+<div id="near" hidden>
+<h2>Servers near you</h2>
+<p>TOTR servers on this network that are letting people ask to join. Nothing here is on the internet.</p>
+<div id="nearList"></div><p id="nearNone">looking...</p>
+<form id="askForm" hidden autocomplete="off"><p id="askWho"></p>
+<p><label>Your name there <input id="askName" size="20" maxlength="40" required></label></p>
+<p><label>A note for the admin (optional) <input id="askNote" size="30" maxlength="300"></label></p>
+<p>You choose your own username and password after they say yes.</p>
+<p><button type="submit">Send request</button> <button type="button" id="askCancel">Never mind</button></p></form>
+<div id="joinList"></div>
+<p id="nearMsg"></p>
+</div>
+<p>To add or remove servers later, open the TOTR menu, Servers..., once a server answers.</p>
+</main>
+<script src="offline.js"></script>
+</body>
+</html>

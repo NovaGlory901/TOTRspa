@@ -1,0 +1,4 @@
+# The developer's public key for signed app updates: one line, `ed25519 <base64 of the 32 key bytes> [comment]`.
+# It is the same line as TOTRsrv/update_pubkey.txt (make the key with `python tools/release_tool.py keygen` in TOTRsrv). Until it is here, this app installs no updates:
+# it could not tell a real one from a fake one, and a server it is connected to could offer anything.
+ed25519 jloytEs1CRiIprtoGVSH1yqvXdXIi10kuqbUF3GuY3o= totr release key 2026-10-12

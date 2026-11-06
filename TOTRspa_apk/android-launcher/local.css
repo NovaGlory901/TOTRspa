@@ -1,0 +1,315 @@
+/* The pages bundled in the Android app (the launcher, "no signal", and the offline player): the same Dreamspace look as the listener app.
+   They cannot read the server's settings, so the app passes its colours down (TotrNative.theme(), see common.js). */
+@font-face {
+  font-family: 'VT323';
+  src: url('vt323.woff2') format('woff2');
+  font-display: swap;
+}
+:root {
+  --bg: #0b0720;
+  --bg2: #150c33;
+  --fg: #d6f6ff;
+  --dim: #9a8fd6;
+  --pink: #ff9de6;
+  --cyan: #8af3ff;
+  --lilac: #b9a2ff;
+  --border: #3d2f82;
+  --bezel: #1b1438;
+  --bg-rgb: 11, 7, 32;
+  --pink-rgb: 255, 157, 230;
+  --cyan-rgb: 138, 243, 255;
+  --lilac-rgb: 185, 162, 255;
+  --glow: 0 0 6px rgba(var(--cyan-rgb), 0.55), 0 0 18px rgba(var(--pink-rgb), 0.25);
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html {
+  background: #06030f;
+}
+body {
+  margin: 0;
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 22px;
+  line-height: 1.3;
+  color: var(--fg);
+  text-shadow: var(--glow);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 40% at 15% 0%, rgba(var(--pink-rgb), 0.16), transparent 70%),
+    radial-gradient(ellipse 90% 40% at 50% 100%, rgba(var(--lilac-rgb), 0.2), transparent 70%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  background-attachment: fixed;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 1px,
+    rgba(var(--cyan-rgb), 0.045) 1px 2px
+  );
+}
+[hidden] {
+  display: none !important;
+}
+main {
+  max-width: 34em;
+  margin: 0 auto;
+  padding: 18px 16px calc(24px + env(safe-area-inset-bottom));
+}
+h1,
+h2 {
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+.logo {
+  font-size: 38px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 18px 0 8px;
+  text-shadow:
+    -2px 0 rgba(var(--pink-rgb), 0.75),
+    2px 0 rgba(var(--cyan-rgb), 0.75),
+    0 0 14px rgba(var(--lilac-rgb), 0.6);
+}
+.cursor {
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.muted {
+  color: var(--dim);
+}
+.err {
+  color: #ff8fa3;
+  min-height: 1.3em;
+}
+input,
+button {
+  font: inherit;
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.55em 0.8em;
+  min-height: 44px;
+}
+button {
+  cursor: pointer;
+  background: rgba(var(--lilac-rgb), 0.1);
+}
+button.primary {
+  color: var(--bg);
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  border-color: transparent;
+  text-shadow: none;
+}
+button:active {
+  filter: brightness(1.4);
+}
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 14px 0;
+}
+form {
+  display: grid;
+  gap: 12px;
+}
+#savedList button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(var(--lilac-rgb), 0.07);
+  padding: 12px 14px;
+}
+.ico {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.14em;
+}
+
+/* no signal */
+.center {
+  text-align: center;
+}
+#cursor {
+  display: inline-block;
+  padding: 6px 12px;
+}
+#snow {
+  display: block;
+  width: 100%;
+  height: 180px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  image-rendering: pixelated;
+  opacity: 0.9;
+}
+.nosignal h1 {
+  text-align: center;
+  font-size: 44px;
+  color: var(--pink);
+  margin-top: 14px;
+}
+.nosignal p {
+  text-align: center;
+}
+#dialShow {
+  font-size: 64px;
+  text-align: center;
+  color: var(--cyan);
+  margin: 6px 0;
+}
+#dialSay {
+  min-height: 3.2em;
+  text-align: center;
+  color: var(--pink);
+}
+#dial input[type='range'] {
+  width: 100%;
+  accent-color: var(--pink);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+/* offline player */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(var(--bg-rgb), 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.top .logo {
+  margin: 0;
+  font-size: 28px;
+  text-align: left;
+  flex: 1;
+}
+.badge {
+  color: var(--bg);
+  background: var(--pink);
+  border-radius: 4px;
+  padding: 0 8px;
+  text-shadow: none;
+}
+.tape {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 10px;
+  padding: 10px;
+}
+.tape img,
+.cover {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: rgba(var(--lilac-rgb), 0.15);
+  flex: none;
+}
+.tape b,
+.song b {
+  font-weight: normal;
+  color: var(--pink);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tape span,
+.song span {
+  color: var(--dim);
+}
+.tape > div,
+.song > div {
+  min-width: 0;
+  flex: 1;
+}
+.song {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  margin: 0 0 6px;
+  padding: 8px 10px;
+}
+.song.now {
+  border-color: var(--pink);
+}
+#bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  background: rgba(var(--bg-rgb), 0.94);
+  border-top: 1px solid var(--border);
+  z-index: 6;
+}
+#bar .line {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#bar .cover {
+  width: 46px;
+  height: 46px;
+}
+#bar .song {
+  display: block;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  flex: 1;
+  min-width: 0;
+}
+#bar .line > div {
+  min-width: 0;
+  flex: 1;
+}
+#bar button {
+  min-width: 44px;
+  padding: 0.3em 0.5em;
+}
+#seek {
+  width: 100%;
+  accent-color: var(--pink);
+  background: none;
+  border: 0;
+  padding: 0;
+  min-height: 24px;
+  margin-top: 4px;
+}
+body.playing main {
+  padding-bottom: 150px;
+}

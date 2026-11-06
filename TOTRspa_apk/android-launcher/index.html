@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'none'; media-src 'none'; base-uri 'none'; form-action 'none'">
+<title>TOTR</title>
+<link rel="stylesheet" href="local.css">
+</head>
+<body>
+<main id="looking">
+  <div class="logo">TOTR<span class="cursor">_</span></div>
+  <p class="muted center" id="lookingText">tuning in...</p>
+</main>
+
+<main id="setup" hidden>
+  <div class="logo">TOTR<span class="cursor">_</span></div>
+  <form id="f">
+    <label class="muted" for="server">Where is your TOTR server?</label>
+    <input id="server" inputmode="url" autocapitalize="none" autocomplete="off" placeholder="https://totr.example:8443">
+    <button type="submit" class="primary">Connect</button>
+    <button type="button" id="setupBack" hidden>Back</button>
+    <p class="err" id="err" role="status"></p>
+  </form>
+  <div id="saved" hidden><p class="muted">Saved servers</p><div id="savedList"></div></div>
+  <div class="row" id="setupOffline" hidden><button id="setupOfflineBtn" type="button">Offline mode</button></div>
+</main>
+
+<main id="nosignal" class="nosignal" hidden>
+  <div class="logo">TOTR<span class="cursor" id="cursor">_</span></div>
+  <canvas id="snow" width="120" height="60" aria-hidden="true"></canvas>
+  <h1>NO SIGNAL</h1>
+  <p class="muted" id="why">can't reach the server</p>
+  <div class="row">
+    <button id="retry" class="primary" type="button">Retry</button>
+    <button id="goOffline" type="button" hidden>Offline mode</button>
+    <button id="change" type="button">Change server</button>
+  </div>
+  <p class="muted center" id="offlineHint" hidden>Offline mode closes the app up completely and plays only the mixtapes saved on this phone.</p>
+</main>
+
+<main id="dial" hidden>
+  <div class="logo">TOTR<span class="cursor">_</span></div>
+  <div id="dialShow">88.0</div>
+  <input type="range" id="dialRange" min="875" max="1080" step="1" value="880" aria-label="Tuning dial">
+  <p id="dialSay" role="status"></p>
+  <p class="muted center" id="dialCount"></p>
+  <div class="row"><button id="dialBack" type="button">Back</button></div>
+</main>
+<script src="common.js"></script>
+<script src="launcher.js"></script>
+</body>
+</html>

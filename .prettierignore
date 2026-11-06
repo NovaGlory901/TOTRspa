@@ -1,0 +1,16 @@
+# built or generated
+**/dist/
+**/electron/native/
+**/node_modules/
+# copies made by dev/tools/sync-vendor.cjs: formatted where they are written
+TOTRspa_web/vendor/
+TOTRspa_win/electron/
+TOTRspa_linux/electron/
+# lock files
+package-lock.json
+*.lock.json
+
+# documents and pages are not re-flowed; page scripts go through dev/tools/format-templates.py
+*.md
+*.html
+*.json
