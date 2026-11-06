@@ -23,7 +23,7 @@ jobs:
       - name: Get the server project (a few tests cross-check against it)
         run: |
           git clone --depth 1 https://github.com/NovaGlory901/TOTRsrv.git ../TOTRsrv
-          pip install cryptography zeroconf
+          pip install cryptography
       - run: npm ci
       - name: Tests (every workspace; the desktop shell runs against a stand-in for Electron)
         run: npm test
